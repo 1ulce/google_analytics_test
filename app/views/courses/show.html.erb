@@ -1,1 +1,15 @@
 show.html.erb
+<%= session[:cart] %>
+<br>
+<%= @course.name %>
+<br>
+<%= link_to "cartに追加", course_api_path(@course.name), method: :post %>
+<br>
+<%= link_to "cartに追加", course_api_path(@course.name), method: :post %>
+
+<br>
+<%= link_to "コース一覧へ", root_path %>
+<br>
+<%= link_to "cartを見る", cart_path %>
+<br>
+<%= link_to "cartをクリア", cart_path, method: :delete %>

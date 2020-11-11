@@ -1,1 +1,16 @@
 cart.html.erb
+<%= session[:cart] %>
+<br>
+<%= "カートには#{session[:cart].count}件入っています"%>
+<br>
+<% session[:cart].each_with_index do |course, idx| %>
+  <% if course.class == Hash %>
+    <%= course["name"] %>
+    <%= link_to "cartから削除", course_api_path(idx), method: :delete %>
+  <% end %>
+  <br>
+<% end %>
+<br>
+<%= link_to "コース一覧へ", root_path %>
+<br>
+<%= link_to "cartをクリア", cart_path, method: :delete %>

@@ -1,9 +1,9 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only:[:show, :add, :delete]
+  before_action :set_course, only:[:show, :add]
 
   def index
     @courses = Course.all
-    session[:cart] = session[:cart] ? session[:cart] : [1,2,3]
+    session[:cart] = session[:cart] ? session[:cart] : []
   end
   
   def show
@@ -14,11 +14,15 @@ class CoursesController < ApplicationController
   end
   
   def delete
-
+    session[:cart].delete_at(params[:name].to_i)
   end
 
   def cart
 
+  end
+
+  def clear
+    session[:cart] = []
   end
 
   private
