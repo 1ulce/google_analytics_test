@@ -9,13 +9,19 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-11QH5V959W');
+      gtag('config', 'G-11QH5V959W', {'debug_mode':true} );
     </script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% case controller_name+"/"+action_name %>
+    <% when "courses/show" %>
+      <%= javascript_pack_tag 'add_to_cart.js', 'data-turbolinks-track': 'reload' %>
+    <% when "courses/cart" %>
+      <%= javascript_pack_tag 'remove_from_cart.js', 'data-turbolinks-track': 'reload' %>
+    <% end %>
   </head>
 
   <body>

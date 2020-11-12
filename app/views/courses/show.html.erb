@@ -3,9 +3,9 @@ show.html.erb
 <br>
 <%= @course.name %>
 <br>
-<%= link_to "cartに追加", course_api_path(@course.name), method: :post %>
+<%= link_to "cartに追加", course_api_path(@course.name), method: :post, class: "add_cart", "data-id" => @course.name %>
 <br>
-<%= link_to "cartに追加", course_api_path(@course.name), method: :post %>
+<%= link_to "cartに追加", course_api_path(@course.name), method: :post, class: "add_cart", "data-id" => @course.name %>
 
 <br>
 <%= link_to "コース一覧へ", root_path %>
