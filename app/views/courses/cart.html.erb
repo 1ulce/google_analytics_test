@@ -6,7 +6,7 @@ cart.html.erb
 <% session[:cart].each_with_index do |course, idx| %>
   <% if course.class == Hash %>
     <%= course["name"] %>
-    <%= link_to "cartから削除", course_api_path(idx), method: :delete, class: "remove_cart", "data-id" => course.name %>
+    <%= link_to "cartから削除", course_api_path(idx), method: :delete, class: "remove_cart", "data-id" => course["name"] %>
   <% end %>
   <br>
 <% end %>
